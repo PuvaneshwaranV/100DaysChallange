@@ -1,5 +1,5 @@
 import java.io.*;
-class leo
+class Leo
 {
 	int n,i,c=0;
 	int p[]=new int[100];
@@ -15,29 +15,30 @@ class leo
 			p[i]=Integer.parseInt(d.readLine());
 		}
 	}
-	void check()
+	boolean check()
 	{
-		for(i=1;i<n;i++)
+		for(i=0;i<n - 1;i++)
 		{
 			if(p[i]>p[i+1])
-				c++;
+				return false;
 		}
+		return true;
 	}
-	void last()
+	void last(boolean result )
 	{
-		if(c!=0)
+		if(!result)
 			System.out.println("List of values is not in ascending order");
 		else
 			System.out.println("List of values is already in ascending order");
 	}
 }
-class insta
+class Insta
 {
 	public static void main(String arg[])throws Exception
 	{
 		leo l=new leo();
 		l.input();
-		l.check();
-		l.last();		
+		l.last(l.check());
+			
 	}	
 }
